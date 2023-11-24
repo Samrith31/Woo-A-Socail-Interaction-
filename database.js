@@ -6,7 +6,8 @@ class Database{
      }
 
     connect(){
-    mongoose.connect('mongodb://127.0.0.1/Users_Woo1', {useNewUrlParser: true})
+    //mongoose.connect('mongodb://127.0.0.1/Users_Woo1', {useNewUrlParser: true})
+    mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
         console.log("database Connctoin sucessfull");
     })

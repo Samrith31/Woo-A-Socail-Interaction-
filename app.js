@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express=require('express');
 const app=express();
 const middleware=require('./middleware');
@@ -8,7 +9,9 @@ const mongoose=require("./database");
 const session=require('express-session');
 const User=require('./schemas/UserSchema');
 var multer  = require('multer')
+
 const port=3003;
+
 
 app.listen(port,()=>{
     console.log(`The application started succesfully on port ${port}`);
