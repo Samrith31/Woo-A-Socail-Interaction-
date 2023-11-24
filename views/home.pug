@@ -1,0 +1,89 @@
+extends layouts/main-layout.pug
+
+block content
+    #profilepicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='profilepicModalLabel', aria-hidden='true')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h5#profilepicModalLabel.modal-title Update Profile
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+            div
+                img#updateimagecontainer(src=userLoggedIn.profilepic, alt="User profile pic")  
+              
+            form(method='post', action="/upload", enctype='multipart/form-data')
+              input(type='file', name='image',id="uploadImage",onchange="readURL(this)")
+              label(for="uploadImage",class="labeluploadimage") Upload
+              br
+              input(type="submit")
+
+    .postFormContainer
+        .userImageContainer
+            img#profilepicupdate(src=userLoggedIn.profilepic, alt="User profile pic")
+        .textareaContainer
+            textarea#postTextarea(placeholder="Start Wooting..!")
+            .buttonsContainer 
+                button#submitPostButton(disabled="") Woot
+    .postContainer
+    #replyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='replyModalLabel', aria-hidden='true')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h5#replyModalLabel.modal-title Reply
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+            #originalPostContainer
+            .postFormContainer
+                .userImageContainer
+                    img(src=userLoggedIn.profilepic, alt="User profile pic")
+                .textareaContainer
+                    textarea#replyTextarea(placeholder="Start Wooting..!")
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+            button#submitReplyButton.btn.btn-primary(type='button',disabled="") Send Reply
+    
+
+
+
+    #deletePostModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deletePostModalLabel', aria-hidden='true')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h5#deletePostModalLabel.modal-title Reply
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+            p Do You want to delete this woot right now
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+            button#deletePostButton.btn.btn-primary(type='button') Delete
+
+
+
+
+
+
+    //- #profilepicModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='profilepicModalLabel', aria-hidden='true')
+    //-   .modal-dialog(role='document')
+    //-     .modal-content
+    //-       .modal-header
+    //-         h5#profilepicModalLabel.modal-title Update Profile
+    //-         button.close(type='button', data-dismiss='modal', aria-label='Close')
+    //-           span(aria-hidden='true') &times;
+    //-       .modal-body
+    //-         div
+    //-             img#updateimagecontainer(src=userLoggedIn.profilepic, alt="User profile pic")  
+              
+    //-         form(method='post', action="/upload", enctype='multipart/form-data')
+    //-           input(type='file', name='image',id="uploadImage")
+    //-           label(for="uploadImage",class="labeluploadimage") Upload
+    //-           br
+    //-           input(type="submit")
+              
+              
+          
+
+block scripts
+    script(src="/js/home.js") 

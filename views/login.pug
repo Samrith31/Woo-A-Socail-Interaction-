@@ -1,0 +1,15 @@
+extends layouts/login-layout.pug
+
+
+    
+block content 
+    div.container
+        h1 Login to Woo...!
+
+        form(method="post",class="myForm")
+            p.errorMessage #{errorMessage}
+            input(type="text",class="myInput",name="logusername",value=logusername,placeholder="Username")
+            input(type="password",class="myInput",name="logpassword",placeholder="Password")
+            input(type="submit",class="btn",value="Login")
+            
+        a(href="/register") Need an Account? Register

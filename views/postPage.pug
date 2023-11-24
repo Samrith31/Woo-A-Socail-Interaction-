@@ -1,0 +1,26 @@
+extends layouts/main-layout.pug
+
+block content
+    script.
+        var postId='!{postId}'
+    .postContainer
+    #replyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='replyModalLabel', aria-hidden='true')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            h5#replyModalLabel.modal-title Reply
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+          .modal-body
+            #originalPostContainer
+            .postFormContainer
+                .userImageContainer
+                    img(src=userLoggedIn.profilepic, alt="User profile pic")
+                .textareaContainer
+                    textarea#replyTextarea(placeholder="Start Wooting..!")
+          .modal-footer
+            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+            button#submitReplyButton.btn.btn-primary(type='button',disabled="") Send Reply
+    
+block scripts 
+    script(src="/js/postPage.js")
