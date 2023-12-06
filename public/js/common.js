@@ -246,18 +246,18 @@ function createPostHtml(postData,largefont=false){
                         <div class='postFooter'>
                             <div class="postButtonContainer">
                              <button data-toggle="modal" data-target="#replyModal">
-                             <i class="fa-regular fa-comment"></i>
+                             <i class="fa-solid fa-comment"></i>
                              </button>
                             </div>
                              <div class="postButtonContainer green">
                              <button class="retweetButton ${retweetButtonActiveClass}">
-                             <i class="fa-solid fa-retweet"></i>
+                             <i class= "fa fa-light fa-hands-asl-interpreting"></i>
                              <span>${postData.retweetUsers.length || ""}</span>
                              </button>
                              </div>
                              <div class="postButtonContainer red">
                              <button class='likesButton ${likesButtonActiveClass}'>
-                             <i class="fa-regular fa-heart"></i>
+                             <i class="fa-solid fa-heart"></i>
                              <span>${postData.likes.length || ""}</span>
                              </button>
                              </div>
