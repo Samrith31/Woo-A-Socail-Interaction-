@@ -109,10 +109,7 @@ app.post("/upload",upload,async(req, res,next) => {
      res.sendStatus(400);
    })
    
-   
-   
-
-    res.redirect('login')
+    // res.redirect('login')
   // res.redirect(req.get('referer'))
    
         
