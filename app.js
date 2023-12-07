@@ -43,6 +43,7 @@ const loginRoute=require('./routes/loginRoutes');
 const registerRoute=require('./routes/registerRoutes');
 const logoutRoute=require('./routes/logout');
 const postRoutes=require('./routes/postRoutes');
+const profileRoutes=require('./routes/profileRoutes');
 
 //api routes
 
@@ -53,6 +54,7 @@ app.use("/register",registerRoute);
 app.use('/logout',logoutRoute);
 app.use('/api/posts',postApiRoute);
 app.use('/posts',postRoutes);
+app.use('/profile',middleware.requireLogin,profileRoutes);
 
 
 app.get("/upload",async(req, res,next) => {
